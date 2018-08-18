@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ********************************************** -->
+    <!-- **************** PROJECT INFO **************** -->
+    <!-- ********************************************** -->
+
+    <groupId>com.github.fedelodo.serialjob2libjava</groupId>
+    <artifactId>serialjob2libjava</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>SerialJob2 Java Library</name>
+    <description>A library written in Java for the Lasit SerialJob2 Protocol.</description>
+    <url>https://github.com/fedelodo/serialjob2libjava</url>
+    <inceptionYear>2018</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <!-- ********************************************** -->
+    <!-- ************ RESOURCES AND SERVICES ********** -->
+    <!-- ********************************************** -->
+
+    <scm>
+        <connection>scm:git:https://github.com/fedelodo/serialjob2libjava.git</connection>
+        <developerConnection>scm:git:https://github.com/fedelodo/serialjob2libjava.git</developerConnection>
+        <tag>head</tag>
+        <url>https://www.github.com/fedelodo/serialjob2libjava</url>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>bintray-fedelodo-maven</id>
+            <name>fedelodo-maven</name>
+            <url>https://api.bintray.com/maven/fedelodo/maven/serialjob2libjava/;publish=1</url>
+        </repository>
+    </distributionManagement>
+
+
+</project>
