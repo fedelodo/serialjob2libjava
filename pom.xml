@@ -10,7 +10,7 @@
 
     <groupId>com.github.fedelodo.serialjob2libjava</groupId>
     <artifactId>serialjob2libjava</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1.0</version>
     <packaging>jar</packaging>
 
     <name>SerialJob2 Java Library</name>
@@ -41,7 +41,7 @@
         <repository>
             <id>bintray-fedelodo-maven</id>
             <name>fedelodo-maven</name>
-            <url>https://api.bintray.com/maven/fedelodo/maven/serialjob2libjava/;publish=1</url>
+            <url>https://api.bintray.com/maven/fedelodo/maven/SerialJob2libjava/;publish=1</url>
         </repository>
     </distributionManagement>
 
