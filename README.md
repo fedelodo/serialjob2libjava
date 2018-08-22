@@ -1,4 +1,6 @@
 # SerialJob2 Java Library
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffedelodo%2Fserialjob2libjava.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffedelodo%2Fserialjob2libjava?ref=badge_shield)
+
 
 A Simple Java library that works for Lasit FlyCAD
 
@@ -43,3 +45,6 @@ The project has been released under the [MIT License][license].
 [bintray-repo]: https://bintray.com/fedelodo/maven/SerialJob2libjava/view
 [license]: http://www.opensource.org/licenses/mit-license.php
 [scm]: https://github.com/fedelodo/serialjob2libjava
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffedelodo%2Fserialjob2libjava.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffedelodo%2Fserialjob2libjava?ref=badge_large)
