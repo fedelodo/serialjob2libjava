@@ -40,7 +40,6 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 
 The project has been released under the [MIT License][license].
 
-[bintray-repo]: https://bintray.com/bernardo-mg/maven/serialjob2libjava/view
-[maven-repo]: http://mvnrepository.com/artifact/com.github.fedelodo.serialjob2libjava/serialjob2libjava
+[bintray-repo]: https://bintray.com/fedelodo/maven/SerialJob2libjava/view
 [license]: http://www.opensource.org/licenses/mit-license.php
 [scm]: https://github.com/fedelodo/serialjob2libjava
