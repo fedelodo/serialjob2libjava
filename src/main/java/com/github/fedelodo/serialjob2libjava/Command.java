@@ -4,6 +4,7 @@ public class Command {
     private String command;
     private BasicCommand basicCommand;
     private SpecialCommand specialCommand;
+    private SpecialCommand[] specialCommands = new SpecialCommand[0];
     private BasicCommand[] basicCommands = new BasicCommand[0];
 
     Command(String command) {
@@ -14,7 +15,7 @@ public class Command {
         this.basicCommand = basicCommand;
     }
 
-    public Command(BasicCommand[] basicCommands) {
+    Command(BasicCommand[] basicCommands) {
         this.basicCommands = basicCommands;
     }
 
@@ -22,9 +23,17 @@ public class Command {
         this.specialCommand = specialCommand;
     }
 
+    Command(SpecialCommand[] specialCommands) {
+        this.specialCommands = specialCommands;
+    }
+
+
     String commandBuilder() {
-        if (basicCommand == null) {
-            return (char) 1 + command + (char) 4;
+        if (basicCommand != null && specialCommand == null) {
+            return (char) 1 + basicCommand.toString() + (char) 4;
+        }
+        if (basicCommand == null && specialCommand != null) {
+            return (char) 1 + specialCommand.toString() + (char) 4;
         }
         if (basicCommands.length > 0) {
             StringBuilder result = new StringBuilder();
@@ -32,8 +41,15 @@ public class Command {
                 result.insert(0, (char) 1 + basicCommand1.toString() + (char) 4);
             }
             return result.toString();
+        }
+        if (specialCommands.length > 0) {
+            StringBuilder result = new StringBuilder();
+            for (SpecialCommand specialCommand1 : specialCommands) {
+                result.insert(0, (char) 1 + specialCommand1.toString() + (char) 4);
+            }
+            return result.toString();
         } else {
-            return (char) 1 + basicCommand.toString() + (char) 4;
+            return (char) 1 + command + (char) 4;
         }
     }
 }
