@@ -41,5 +41,5 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 The project has been released under the [BSD 3-Clause][license].
 
 [bintray-repo]: https://bintray.com/fedelodo/maven/SerialJob2libjava/view
-[license]: https://opensource.org/licenses/BSD-3-Clause.php
+[license]: https://opensource.org/licenses/BSD-3-Clause
 [scm]: https://github.com/fedelodo/serialjob2libjava
