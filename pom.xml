@@ -10,7 +10,7 @@
 
     <groupId>com.github.fedelodo.serialjob2libjava</groupId>
     <artifactId>serialjob2libjava</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>SerialJob2 Java Library</name>
@@ -43,7 +43,11 @@
             <name>fedelodo-maven</name>
             <url>https://api.bintray.com/maven/fedelodo/maven/SerialJob2libjava/;publish=1</url>
         </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>oss-jfrog-artifactory-snapshots</name>
+            <url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
+        </snapshotRepository>
     </distributionManagement>
-
 
 </project>
