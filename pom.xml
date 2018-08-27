@@ -58,11 +58,15 @@
             <name>Releases Repository</name>
             <url>https://api.bintray.com/maven/fedelodo/maven/serialjob2libjava</url>
         </repository>
+
+        <site>
+            <id>api.wiki</id>
+            <url>https://github.com/phillip-kruger/apiee/wiki</url>
+        </site>
+
         <snapshotRepository>
-            <uniqueVersion>false</uniqueVersion>
-            <id>snapshots</id>
-            <name>Snapshots Repository</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
     <profiles>
