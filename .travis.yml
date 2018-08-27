@@ -1,5 +1,15 @@
 language: java
 jdk: oraclejdk8
-cache:
-  directories:
-  - $HOME/.m2
+before_deploy:
+- mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
+- export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep -v '\[')
+deploy:
+  provider: releases
+  api_key:
+    secure: FbAU+plNKrDWZtG18JOf2wF+jNeqeEeGsszFuLO5pZeXxRUW6zLlzU5tPTvhffYW96DkrDNwG9VfXbCgprc0/fTnJLdKy5Dsvr6/XjUXb7fKL8iNDq4hLzqzL5HKqxoChYs3WtR/CVs8pKxBDqNm6i8PsKRksBM0JiCfC+fdbK8DhOcvNMgtXIurMDa6dQpyjxIN5PsQNSoNZFX5C0guSSLEUr4M5HrSCeNmw8vssdCCBLW1Hvs/svtKFAJ6niGQtyW6MemYD1YdcGMZIciMQv5KODfuY1kL1V2/cAB+ZXrfmLCuzngJqJqF1HP6o+B4pYEPSqZJWsIeTUD4FBv55QNtxwl5b9N6wOUerATLoXrhW4YOoS4Da2ey3xTLvTNyoXxY9dNYlePQfrrobOYRYKLnHmflkKEmH3QVa4zg70h9jzhc5yvhqlzPCli4/5LqUZmjJ9i2hd2PDx9cw/FK8liqsDAd4kmRxBCPe3dMe2Skl+OC2sJfeYnuu3JSLLQwJaqtiCfIfcKbsGQXsXP/FfE1kCDOQ3fkLgRjf3jlW+qAit8Zcgeht+Dqw9ea8Kuxh+zFYi4Pe6xrmRYWnB/1vRHHqnVMS2Zy1H9k6Sd38t/CVfff021EiD1SwmYox0E1l+Gxc+pGHn2jj4SnBxpDmF23I0aYBYSgaeNG71EDN90=
+  file:
+  - serialjob2libjava/target/serialjob2libjava-$project_version.jar
+  skip_cleanup: true
+  on:
+    repo: fedelodo/serialjob2libjava
+  name: $project_version
