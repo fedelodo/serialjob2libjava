@@ -38,8 +38,8 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 
 ## License
 
-The project has been released under the [MIT License][license].
+The project has been released under the [BSD 3-Clause][license].
 
 [bintray-repo]: https://bintray.com/fedelodo/maven/SerialJob2libjava/view
-[license]: http://www.opensource.org/licenses/mit-license.php
+[license]: https://opensource.org/licenses/BSD-3-Clause.php
 [scm]: https://github.com/fedelodo/serialjob2libjava

@@ -3,6 +3,10 @@ jdk: oraclejdk8
 before_deploy:
 - mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
 - export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep -v '\[')
+- git config --local user.name "fedelodo"
+- git config --local user.email "f.lodox@gmail.com"
+- git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+
 deploy:
   provider: releases
   api_key:
@@ -12,6 +16,7 @@ deploy:
   skip_cleanup: true
   on:
     repo: fedelodo/serialjob2libjava
+    branch: master
   name: $project_version
 
 install:
