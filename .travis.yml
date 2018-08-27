@@ -32,5 +32,7 @@ deploy:
     tags: true
   name: $project_version
 
+before_install:
+  -chmod -R +x ~/.travis/deploy.sh
 install:
 - mvn --settings .travis/.maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
