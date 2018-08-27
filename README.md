@@ -1,4 +1,5 @@
 # SerialJob2 Java Library
+[![Build Status](https://travis-ci.org/fedelodo/serialjob2libjava.svg?branch=master)](https://travis-ci.org/fedelodo/serialjob2libjava) [![Maintainability](https://api.codeclimate.com/v1/badges/bed415ee2f91065b2320/maintainability)](https://codeclimate.com/github/fedelodo/serialjob2libjava/maintainability)[![GitHub license](https://img.shields.io/github/license/fedelodo/serialjob2libjava.svg)](https://github.com/fedelodo/serialjob2libjava/blob/master/LICENSE)
 
 A Simple Java library that works for Lasit FlyCAD
 
@@ -10,6 +11,7 @@ It is a Java library, meant to be included as a dependency on any project which 
 
 ### Installing
 
+You can get the latest binaries from [Github][https://github.com/fedelodo/seraljob2libjava/releases/latest].
 The recommended way to install the project is by setting it up as a dependency. To get the configuration information for this check the [Bintray repository][bintray-repo].
 
 It is always possible installing it by using the usual Maven command:
