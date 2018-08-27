@@ -11,7 +11,6 @@
     <groupId>com.github.fedelodo.serialjob2libjava</groupId>
     <artifactId>serialjob2libjava</artifactId>
     <version>0.1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
 
     <name>SerialJob2 Java Library</name>
     <description>A library written in Java for the Lasit SerialJob2 Protocol.</description>
