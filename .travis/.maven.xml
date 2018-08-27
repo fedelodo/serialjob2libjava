@@ -6,7 +6,7 @@
         <server>
             <username>${env.BINTRAY_USERNAME}</username>
             <password>${env.BINTRAY_PASSWORD}</password>
-            <id>releases</id>
+            <id>bintray-fedelodo-maven</id>
         </server>
         <server>
             <username>${env.SNAPSHOT_USERNAME}</username>
