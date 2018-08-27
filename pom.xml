@@ -65,7 +65,7 @@
 
         <site>
             <id>api.wiki</id>
-            <url>https://github.com/phillip-kruger/apiee/wiki</url>
+            <url>https://github.com/fedelodo/serialjob2libjava/wiki</url>
         </site>
 
         <snapshotRepository>
