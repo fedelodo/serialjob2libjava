@@ -30,7 +30,7 @@ public class TcpObj {
             out = new DataOutputStream(connection.getOutputStream());
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(connection.getInputStream()));
-            out.writeBytes(command.toString());
+            out.writeBytes(command.commandBuilder());
             out.flush();
             String response = reader.readLine();
             reader.close();
@@ -142,7 +142,11 @@ public class TcpObj {
         return getSj2Response(response);
     }
 
-
+    public String ResetLaserStatus(Socket connection) {
+        Command cmd = new Command("RST");
+        String response = Sj2Command(cmd, connection);
+        return getSj2Response(response);
+    }
 }
 
 

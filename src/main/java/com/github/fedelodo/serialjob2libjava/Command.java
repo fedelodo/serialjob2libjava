@@ -22,8 +22,7 @@ public class Command {
         this.specialCommand = specialCommand;
     }
 
-    @Override
-    public String toString() {
+    String commandBuilder() {
         if (basicCommand == null) {
             return (char) 1 + command + (char) 4;
         }
