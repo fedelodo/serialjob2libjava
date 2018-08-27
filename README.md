@@ -11,7 +11,7 @@ It is a Java library, meant to be included as a dependency on any project which 
 
 ### Installing
 
-You can get the latest binaries from [Github][https://github.com/fedelodo/seraljob2libjava/releases/latest].
+You can get the latest binaries from [Github](https://github.com/fedelodo/seraljob2libjava/releases/latest).
 The recommended way to install the project is by setting it up as a dependency. To get the configuration information for this check the [Bintray repository][bintray-repo].
 
 It is always possible installing it by using the usual Maven command:
