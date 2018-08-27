@@ -5,10 +5,23 @@ before_deploy:
 - export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep -v '\[')
 - git config --local user.name "fedelodo"
 - git config --local user.email "f.lodox@gmail.com"
-- git tag "$project_version"
 
 deploy:
-  provider: releases
+- provider: script
+  script: .travis/deploy.sh
+  skip_cleanup: true
+  on:
+    repo: fedelodo/serialjob2libjava
+    branch: master
+
+- provider: script
+  script: .travis/deploy.sh
+  skip_cleanup: true
+  on:
+    repo: fedelodo/serialjob2libjava
+    tags: true
+
+- provider: releases
   api_key:
     secure: FbAU+plNKrDWZtG18JOf2wF+jNeqeEeGsszFuLO5pZeXxRUW6zLlzU5tPTvhffYW96DkrDNwG9VfXbCgprc0/fTnJLdKy5Dsvr6/XjUXb7fKL8iNDq4hLzqzL5HKqxoChYs3WtR/CVs8pKxBDqNm6i8PsKRksBM0JiCfC+fdbK8DhOcvNMgtXIurMDa6dQpyjxIN5PsQNSoNZFX5C0guSSLEUr4M5HrSCeNmw8vssdCCBLW1Hvs/svtKFAJ6niGQtyW6MemYD1YdcGMZIciMQv5KODfuY1kL1V2/cAB+ZXrfmLCuzngJqJqF1HP6o+B4pYEPSqZJWsIeTUD4FBv55QNtxwl5b9N6wOUerATLoXrhW4YOoS4Da2ey3xTLvTNyoXxY9dNYlePQfrrobOYRYKLnHmflkKEmH3QVa4zg70h9jzhc5yvhqlzPCli4/5LqUZmjJ9i2hd2PDx9cw/FK8liqsDAd4kmRxBCPe3dMe2Skl+OC2sJfeYnuu3JSLLQwJaqtiCfIfcKbsGQXsXP/FfE1kCDOQ3fkLgRjf3jlW+qAit8Zcgeht+Dqw9ea8Kuxh+zFYi4Pe6xrmRYWnB/1vRHHqnVMS2Zy1H9k6Sd38t/CVfff021EiD1SwmYox0E1l+Gxc+pGHn2jj4SnBxpDmF23I0aYBYSgaeNG71EDN90=
   file:
@@ -16,13 +29,12 @@ deploy:
   skip_cleanup: true
   on:
     repo: fedelodo/serialjob2libjava
-    branch: master
+    tags: true
   name: $project_version
 
+before_install:
+- if [ ! -z "$GPG_SECRET_KEYS" ]; then echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import; fi
+- if [ ! -z "$GPG_OWNERTRUST" ]; then echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust; fi
+
 install:
-  mvn --settings .maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
-
-## Build and release to maven central
-script:
-  mvn clean deploy --settings .maven.xml -DskipTests=true -B -U -Prelease
-
+- mvn --settings .travis/settings.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V

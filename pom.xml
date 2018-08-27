@@ -26,6 +26,14 @@
         </license>
     </licenses>
 
+    <developers>
+        <developer>
+            <id>fedelodo</id>
+            <name>Federico Lodovici</name>
+            <email>f.lodox@gmail.com</email>
+        </developer>
+    </developers>
+
     <!-- ********************************************** -->
     <!-- ************ RESOURCES AND SERVICES ********** -->
     <!-- ********************************************** -->
@@ -37,17 +45,100 @@
         <url>https://www.github.com/fedelodo/serialjob2libjava</url>
     </scm>
 
+    <ciManagement>
+        <system>Travis CI</system>
+        <url>https://travis-ci.org/fedelodo/serialjob2libjava</url>
+        <notifiers/>
+    </ciManagement>
+
     <distributionManagement>
         <repository>
-            <id>bintray-fedelodo-maven</id>
-            <name>fedelodo-maven</name>
-            <url>https://api.bintray.com/maven/fedelodo/maven/SerialJob2libjava/;publish=1</url>
+            <uniqueVersion>false</uniqueVersion>
+            <id>releases</id>
+            <name>Releases Repository</name>
+            <url>https://api.bintray.com/maven/fedelodo/maven/serialjob2libjava</url>
         </repository>
         <snapshotRepository>
+            <uniqueVersion>false</uniqueVersion>
             <id>snapshots</id>
-            <name>oss-jfrog-artifactory-snapshots</name>
-            <url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
+            <name>Snapshots Repository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
+    <profiles>
+        <!-- Activate using the release property: mvn clean install -Prelease -->
+        <profile>
+            <id>release</id>
+            <activation>
+                <property>
+                    <name>release</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <!-- To release to Maven central -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-release-plugin</artifactId>
+                        <version>2.5.2</version>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.8</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+                    <!-- To generate javadoc -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>3.0.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.10.4</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
 
+                    <!-- To sign the artifacts -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+
+            </build>
+        </profile>
+    </profiles>
 </project>
