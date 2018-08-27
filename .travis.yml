@@ -33,6 +33,6 @@ deploy:
   name: $project_version
 
 before_install:
-- chmod +x ~/.travis/deploy.sh
+- chmod +x .travis/deploy.sh
 install:
 - mvn --settings .travis/.maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
