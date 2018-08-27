@@ -29,8 +29,7 @@ public class BasicCommand {
         this.index = 0;
     }
 
-    @Override
-    public String toString() {
+    public String commandBuilder() {
         if (type.equals("J")) {
             return (char) 2 + type + argument + (char) 3;
         } else {

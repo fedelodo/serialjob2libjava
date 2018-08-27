@@ -32,8 +32,7 @@ public class SpecialCommand {
         this.par2 = par2;
     }
 
-    @Override
-    public String toString() {
+    public String commandBuilder() {
         if (par1 == null && par2 == null) {
             return (char) 2 + "@" + String.format("%02d", commandId) + (char) 3;
         }
